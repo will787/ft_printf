@@ -6,7 +6,7 @@
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:55:00 by wivieira          #+#    #+#             */
-/*   Updated: 2023/12/04 19:44:26 by wivieira         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:11:28 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ int	ft_printf(const char *value, ...)
 	va_start(args, value); 
 	i = 0;
 	while (value[i])
-	{
+	{	
 		if(value[i] == '%' && value[i + 1] == 'c')
-		{
+		{	
+			lenght = ft_select_params(value[i + 1],args);
 			i++;
-			lenght = ft_select_params(value[i],args);
 		}
 		else
 		{
@@ -43,7 +43,7 @@ int	ft_printf(const char *value, ...)
 		i++;
 	}
 	va_end(args);
-	return(i);
+	return();
 }
 
 // - char
