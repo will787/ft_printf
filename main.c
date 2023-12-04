@@ -1,6 +1,4 @@
-#include "printf.h"
-#include "libft.h"
-
+#include "./includes/printf.h"
 int main(void)
 {
 	char c = 'A';
