@@ -2,30 +2,34 @@ NAME = libftprintf.a
 EXECUTABLE = program
 
 LIBFT_DIR = ./libft
-HEADER_DIR = ./include
+HEADER_DIR = 
 SRC_DIR = ./src
-OBJ_DIR = obj
+OBJ_DIR = ./obj
+V_PATH = ./obj
 
-HEADER = $(HEADER_DIR)printf.h
+HEADER = ft_printf.h
 CFLAGS = -Wall -Wextra -Werror
 CC = gcc
 AR = ar rcs
 RM = rm -rf
 
 LIBFT = $(LIBFT_DIR)/libft.a
-SRC = $(SRC_DIR)ft_printf.c 
-SRCS = $(addsuffix $(SRC)/, $(SRC))
+SRCS = $(SRC_DIR)ft_printf.c
 
 SRC_OBJ = $(SRC:.c=.o)
-OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
+OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)/%.o)
+
+all: $(NAME)
+
+%.o: src/%.c $(HEADER) | $(OBJ_DIR)
+	echo $<
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o: src/%.c $(HEADER) | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-all: $(NAME)
-
 $(NAME):	 	$(LIBFT) $(OBJ_DIR) $(OBJS)
-			cp 	$(LIBFT) $(NAME)
+			cp 	$(LIBFT) $(NAME) $(SRC)
 				$(AR) $(NAME) $(LIBFT) $(OBJS)
 $(LIBFT):
 			make -C $(LIBFT_DIR) all

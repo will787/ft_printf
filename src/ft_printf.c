@@ -6,11 +6,11 @@
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:55:00 by wivieira          #+#    #+#             */
-/*   Updated: 2023/12/04 12:41:02 by wivieira         ###   ########.fr       */
+/*   Updated: 2023/12/04 14:48:49 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/printf.h"
+#include "../ft_printf.h"
 
 int	ft_printf(const char *value, ...)
 {	

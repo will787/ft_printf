@@ -1,4 +1,4 @@
-#include "./include/printf.h"
+#include "printf.h"
 int main(void)
 {
 	char c = 'A';
