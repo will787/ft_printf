@@ -1,5 +1,5 @@
-LIBFT_DIR = ./libft/
-SRC_DIR = ./src/
+LIBFT_DIR = libft
+SRC_DIR = src
 HEADER_DIR = $(SRC_DIR)printf.h $(SRC_DIR)libft.h
 
 TARGET = program
@@ -11,6 +11,7 @@ MAIN_SRC = main.c
 
 LIBFT_OBJ = $(LIBFT_SRC:.c=.o)
 SRC_OBJ = $(SRC_SRC:.c=.o)
+LIBFT_OBJ = $(LIBFT_SRC:.c=.o)
 
 FLAGS = -Wall -Wextra -Werror
 
