@@ -1,12 +1,13 @@
 #include "printf.h"
+#include <stdio.h>
 int main(void)
 {
 	char c = 'A';
-	ft_printf("%c", c);
-	printf("%c\n", c);
-    return 0;
+	int my = ft_printf("my ft_printf -->: %c\n", c);
+	int origin = printf("original printf -->: %c\n", c);
 
-	char *str = "testando";
-	ft_printf("minha printf: %s\n", str);
-	printf("printf original: %s\n", str);
+
+	printf("\n\n<-------------------------->\n\n");
+	printf("resultado sua ft_printf: %i\n", my);
+	printf("resultado printf original: %i\n", origin);
 }

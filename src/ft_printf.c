@@ -6,40 +6,39 @@
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:55:00 by wivieira          #+#    #+#             */
-/*   Updated: 2023/12/04 14:48:49 by wivieira         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:44:26 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
+int	ft_select_params(const char value, va_list args)
+{
+	if (value == 'c')
+		return (ft_putchar_fd(va_arg(args, int), 1));
+	
+	return(0);
+}
 int	ft_printf(const char *value, ...)
 {	
 	va_list args;
-	
+	int i;
+	int lenght;
+
 	if(!value)
 		return -1;
-
-	va_start(args, value);
-	int i; 
+	va_start(args, value); 
 	i = 0;
 	while (value[i])
 	{
 		if(value[i] == '%' && value[i + 1] == 'c')
 		{
-			putchar(32);
-			char c = va_arg(args, int);
-			putchar(c);	
 			i++;
+			lenght = ft_select_params(value[i],args);
 		}
-		// else if(value[i] == '%' && value[i + 1] == 'i')
-		// {
-		// 	ft_putchar_fd(32, 1);
-		// 	int i = va_arg(args, int);
-		// 	ft_putnbr_fd(i, 1);
-		// }
 		else
 		{
-			putchar(value[i]);
+			lenght = ft_putchar_fd(value[i], 1);
 		}
 		i++;
 	}
