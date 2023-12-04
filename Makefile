@@ -2,22 +2,41 @@ NAME = libftprintf.a
 TARGET = program
 
 LIBFT_DIR = ./libft
-SRC_DIR = ./include
+HEADER_DIR = ./include
+SRC_DIR = ./src
+OBJ_DIR = obj
 
-HEADER_DIR = $(SRC_DIR)printf.h
+HEADER = $(HEADER_DIR)printf.h
 CFLAGS = -Wall -Wextra -Werror
+CC = gcc
+AR = ar rcs
+RM = rm -rf
 
+LIBFT = $(LIBFT_DIR)/libft.a
+SRC = $(SRC_DIR)ft_printf.c 
+SRCS = $(addsuffix .c, $(SRC))
 
-SRC_SRC = $(SRC_DIR)ft_printf.c 
 SRC_OBJ = $(SRC_SRC:.c=.o)
+OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
+$(NAME):	 	$(LIBFT) $(SRC) $(OBJS)
+			cp 	$(LIBFT) $(NAME)
+				$(AR) $(NAME) $(LIBFT) $(OBJS)
+$(LIBFT):
+			make -C $(LIBFT_DIR) all
+
+$(OBJ_DIR):
+			mkdir ip $(OBJ_DIR)
+
 clean:
-	rm -f $(LIBFT_OBJ) $(SRC_OBJ) $(MAIN_SRC:.c=.o)
+			make -C $(LIBFT_DIR) clean
+			$(RM) $(OBJ_DIR)
 
 fclean: clean
-	rm -rf $(TARGET) $(LIBFT_DIR)$(NAME)
+			make -C $(RM) $(NAME) $(LIBFT_DIR) fclean
+			$(RM) $(NAME) $(LIBFT)
 
 re: fclean all
 
