@@ -14,7 +14,7 @@ AR = ar rcs
 RM = rm -rf
 
 LIBFT = $(LIBFT_DIR)/libft.a
-SRCS = $(SRC_DIR)ft_printf.c
+SRCS = $(SRC_DIR)ft_printf.c $(SRC_DIR)ft_putnbr.c
 
 SRC_OBJ = $(SRC:.c=.o)
 OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)/%.o)

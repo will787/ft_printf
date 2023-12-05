@@ -2,9 +2,9 @@
 #include <stdio.h>
 int main(void)
 {
-	char c = 'A';
-	int my = ft_printf("my ft_printf -->: %c\n", c);
-	int origin = printf("original printf -->: %c\n", c);
+	int c = 1000;
+	int my = ft_printf("-->: %i\n", c);
+	int origin = printf("-->: %i\n", c);
 
 
 	printf("\n\n<-------------------------->\n\n");
