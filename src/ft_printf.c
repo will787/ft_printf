@@ -6,7 +6,7 @@
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:55:00 by wivieira          #+#    #+#             */
-/*   Updated: 2023/12/05 19:52:29 by wivieira         ###   ########.fr       */
+/*   Updated: 2023/12/05 20:11:08 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_select_params(const char value, va_list args)
 	else if (value == 'u')
 		return (ft_uputnbr(va_arg(args, int)));
 	else if(value == 'x' || value == 'X')
-		return (ft_puthex_def(va_arg(args, unsigned int), value));
+		return (ft_puthex_def(value, va_arg(args, unsigned int)));
 	else if (value == 'p')
 		return (0);
 	else if (value == '%')
