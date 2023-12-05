@@ -2,10 +2,9 @@
 #include <stdio.h>
 int main(void)
 {
-	int c = 1000;
-	int my = ft_printf("-->: %i\n", c);
-	int origin = printf("-->: %i\n", c);
-
+	unsigned int c = -1;
+	int my = ft_printf("-->: %x\n");
+	int origin = printf("-->: %x\n");
 
 	printf("\n\n<-------------------------->\n\n");
 	printf("resultado sua ft_printf: %i\n", my);

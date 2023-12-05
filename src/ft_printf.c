@@ -6,20 +6,28 @@
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:55:00 by wivieira          #+#    #+#             */
-/*   Updated: 2023/12/05 14:48:01 by wivieira         ###   ########.fr       */
+/*   Updated: 2023/12/05 19:52:29 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
 int	ft_select_params(const char value, va_list args)
-{
+{	
 	if (value == 'c')
 		return (ft_putchar_fd(va_arg(args, int), 1));
 	else if (value == 's')
 		return (ft_putstr_fd(va_arg(args, char *), 1));
 	else if (value == 'd' || value == 'i')
 		return (ft_putnbr(va_arg(args, int)));
+	else if (value == 'u')
+		return (ft_uputnbr(va_arg(args, int)));
+	else if(value == 'x' || value == 'X')
+		return (ft_puthex_def(va_arg(args, unsigned int), value));
+	else if (value == 'p')
+		return (0);
+	else if (value == '%')
+		return(ft_putchar_fd('%', 1));
 	return (0);
 }
 
@@ -32,6 +40,7 @@ int	ft_printf(const char *value, ...)
 	if (!value)
 		return (-1);
 	va_start(args, value);
+	lenght = 0;
 	i = 0;
 	while (value[i])
 	{	
@@ -50,13 +59,13 @@ int	ft_printf(const char *value, ...)
 
 // - char {OK}
 // - string {OK}
-// - ponteiro
 // - inteiro {OK}
 // - decimal - mesma coisa com inteiro {OK}
-// - unsigned
-// - x - minúsculo
+// - ponteiro 
+// - unsigned {OK}
+// - x - minúsculo 
 // - X - maiúsuclo
-// - % porcentagem sinal
+// - % porcentagem sinal {OK}
 
 // va_arg retorna o argumento atual
 // os outros não retorna valor nenhum
