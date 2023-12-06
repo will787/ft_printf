@@ -1,10 +1,11 @@
-#include "printf.h"
+#include "ft_printf.h"
 #include <stdio.h>
 int main(void)
 {
-	unsigned int c = 1303;
-	int my = ft_printf("-->: %x\n", c);
-	int origin = printf("-->: %x\n", c);
+	char * c ;
+	char * cd = 15;
+	int my = ft_printf("-->: %p %p\n",  c, cd);
+	int origin = printf("-->: %p %p\n", c, cd);
 
 	printf("\n\n<-------------------------->\n\n");
 	printf("resultado sua ft_printf: %i\n", my);

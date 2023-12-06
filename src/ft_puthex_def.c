@@ -6,7 +6,7 @@
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:53:40 by wivieira          #+#    #+#             */
-/*   Updated: 2023/12/05 20:30:28 by wivieira         ###   ########.fr       */
+/*   Updated: 2023/12/06 20:41:20 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int ft_lenhex(unsigned int n)
 	while(n != 0)
 	{
 		lenhex++;
-		n /= 10;
+		n /= 16;
 	}
 	return(lenhex);
 }
@@ -29,27 +29,25 @@ void ft_puthex_format(const char value, unsigned int n)
 {
 	if(n >= 16)
 	{
-		ft_puthex_format(value, n % 16);
-		n = n / 16;
-
+		ft_puthex_format(value, n / 16);
 	}
-
-	if (n <= 9)
+	n = n % 16;
+	if (n < 10)
 		ft_putchar_fd(n + '0', 1);
 	else
 	{
 		if (value == 'x')
-			ft_putchar_fd(n - 10 + 'a', 1);
+			ft_putchar_fd((n - 10) + 'a', 1);
 		if(value == 'X')
-			ft_putchar_fd(n - 10 + 'A', 1);
+			ft_putchar_fd((n - 10) + 'A', 1);	
 	}
 }
 
-int ft_puthex_def(const char value, unsigned int n)
+int ft_puthex_def(const char value,  unsigned int n)
 {
 	if (n == 0)
-		write(1, "0", 1);
+		return(write(1, "0", 1));
 	else
 		ft_puthex_format(value, n);
-	return(ft_lenhex(n));
+	return (ft_lenhex(n));
 }
