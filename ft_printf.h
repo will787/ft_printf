@@ -6,7 +6,7 @@
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:15:36 by wivieira          #+#    #+#             */
-/*   Updated: 2023/12/06 20:19:38 by wivieira         ###   ########.fr       */
+/*   Updated: 2023/12/07 20:01:54 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int		ft_putnbr(int n);
 char	*ft_utoa(unsigned int n);
 int		ft_uputnbr(unsigned int n);
 int		ft_puthex_def(const char value,  unsigned int n);
-int		ft_putpointer(const char value, unsigned int n);
+int		ft_putpointer(const char value, long long n);
+int		ft_puthex_pointer(const char value,  unsigned long long n);
 #endif
