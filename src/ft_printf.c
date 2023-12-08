@@ -6,7 +6,7 @@
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:55:00 by wivieira          #+#    #+#             */
-/*   Updated: 2023/12/07 20:06:27 by wivieira         ###   ########.fr       */
+/*   Updated: 2023/12/08 13:23:56 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int	ft_select_params(const char value, va_list args)
 		return (ft_putnbr(va_arg(args, int)));
 	else if (value == 'u')
 		return (ft_uputnbr(va_arg(args, int)));
-	else if(value == 'x' || value == 'X')
+	else if (value == 'x' || value == 'X')
 		return (ft_puthex_def(value, va_arg(args, unsigned int)));
 	else if (value == 'p')
 		return (ft_putpointer(value, (long long)va_arg(args, unsigned long)));
 	else if (value == '%')
-		return(ft_putchar_fd('%', 1));
+		return (ft_putchar_fd('%', 1));
 	return (0);
 }
 
@@ -45,7 +45,7 @@ int	ft_printf(const char *value, ...)
 	while (value[i])
 	{	
 		if (value[i] == '%' && ft_strrchr("cspiduxX%", value[i + 1]))
-		{	
+		{
 			lenght += ft_select_params(value[i + 1], args);
 			i++;
 		}
@@ -53,19 +53,17 @@ int	ft_printf(const char *value, ...)
 			lenght += ft_putchar_fd(value[i], 1);
 		i++;
 	}
-	va_end (args);
+	va_end(args);
 	return (lenght);
 }
-
 // - char {OK}
 // - string {OK}
 // - inteiro {OK}
 // - decimal - mesma coisa com inteiro {OK}
-// - ponteiro 
+// - ponteiro {OK}
 // - unsigned {OK}
-// - x - minúsculo 
-// - X - maiúsuclo
+// - x - minúsculo {OK} 
+// - X - maiúsuclo {OK}
 // - % porcentagem sinal {OK}
-
 // va_arg retorna o argumento atual
 // os outros não retorna valor nenhum
