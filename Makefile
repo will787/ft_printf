@@ -1,6 +1,4 @@
 NAME = libftprintf.a
-EXECUTABLE = program
-
 LIBFT_DIR = ./libft
 HEADER_DIR = 
 SRC_DIR = ./src
@@ -23,7 +21,6 @@ OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)/%.o)
 all: $(NAME)
 
 %.o: src/%.c $(HEADER) | $(OBJ_DIR)
-	echo $<
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/%.o: src/%.c $(HEADER) | $(OBJ_DIR)
