@@ -19,6 +19,7 @@ SRCS = $(SRC_DIR)ft_printf.c $(SRC_DIR)ft_putnbr.c $(SRC_DIR)ft_utoa.c $(SRC_DIR
 SRC_OBJ = $(SRC:.c=.o)
 OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)/%.o)
 
+
 all: $(NAME)
 
 %.o: src/%.c $(HEADER) | $(OBJ_DIR)

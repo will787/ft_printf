@@ -1,20 +1,14 @@
-#include "ft_printf.h"
-#include <stdio.h>
-int main(void)
-{
-	// char * c ;
-	// unsigned int cd = -1;
-	// int my = ft_printf("-->: %p\n",  &cd);
-	// int origin = printf("-->: %p\n", &cd);
+// #include "ft_printf.h"
+// #include <stdio.h>
+// int main(void)
+// {
+// 	char *string = "olamundo";
 
-	// printf("\n\n<-------------------------->\n\n");
-	// printf("resultado sua ft_printf: %i\n", my);
-	// printf("resultado printf original: %i\n", origin);
+// 	int original =    printf("% s\n", string); // tipo inteiro
+// 	int myprintf = ft_printf("% s\n", string);
 
-	char *string = "olamundo";
+// 	printf("\n\n<--------------->\n\n");
 
-	printf("%#x\n", string);
-	printf("%#X\n", string);
-	printf("%#c\n", string);
-	printf("%#s\n", string);
-}
+// 	printf("original : %i\n", original);
+// 	printf("a minha : %i\n", myprintf);
+// }
