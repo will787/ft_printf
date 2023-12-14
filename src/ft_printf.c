@@ -6,7 +6,7 @@
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:55:00 by wivieira          #+#    #+#             */
-/*   Updated: 2023/12/08 13:23:56 by wivieira         ###   ########.fr       */
+/*   Updated: 2023/12/08 14:21:04 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_printf(const char *value, ...)
 
 	if (!value)
 		return (-1);
-	va_start(args, value);
+	va_start (args, value);
 	lenght = 0;
 	i = 0;
 	while (value[i])
