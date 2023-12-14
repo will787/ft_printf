@@ -1,5 +1,5 @@
 NAME = libftprintf.a
-LIBFT_DIR = ./libft
+LIBFT_DIR = ./lib
 HEADER_DIR = 
 SRC_DIR = ./src
 OBJ_DIR = ./obj
