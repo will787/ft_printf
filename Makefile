@@ -1,9 +1,6 @@
 NAME = libftprintf.a
 LIBFT_DIR = ./lib
-HEADER_DIR = 
 SRC_DIR = ./src
-OBJ_DIR = ./obj
-V_PATH = ./obj
 
 HEADER = ft_printf.h
 CFLAGS = -Wall -Wextra -Werror
@@ -12,32 +9,28 @@ AR = ar rcs
 RM = rm -rf
 
 LIBFT = $(LIBFT_DIR)/libft.a
-SRCS = $(SRC_DIR)ft_printf.c $(SRC_DIR)ft_putnbr.c $(SRC_DIR)ft_utoa.c $(SRC_DIR)ft_uputnbr.c $(SRC_DIR)ft_puthex_def.c $(SRC_DIR)ft_putpointer.c $(SRC_DIR)ft_puthex_pointer.c
 
-SRC_OBJ = $(SRC:.c=.o)
-OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)/%.o)
+SRCS = $(SRC_DIR)/ft_printf.c \
+		$(SRC_DIR)/ft_putnbr.c \
+		$(SRC_DIR)/ft_utoa.c \
+		$(SRC_DIR)/ft_uputnbr.c \
+		$(SRC_DIR)/ft_puthex_def.c \
+		$(SRC_DIR)/ft_putpointer.c \
+		$(SRC_DIR)/ft_puthex_pointer.c
 
+OBJ = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-%.o: src/%.c $(HEADER) | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(OBJ_DIR)/%.o: src/%.c $(HEADER) | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(NAME):	 	$(LIBFT) $(OBJ_DIR) $(OBJS)
-			cp 	$(LIBFT) $(NAME) $(SRC)
-				$(AR) $(NAME) $(LIBFT) $(OBJS)
+$(NAME):	 	$(LIBFT) $(OBJ)
+			cp 	$(LIBFT) $(NAME)
+				$(AR) $(NAME) $(LIBFT) $(OBJ)
 $(LIBFT):
-			make -C $(LIBFT_DIR) all
-
-$(OBJ_DIR):
-			mkdir -p $(OBJ_DIR)
+			make -C $(LIBFT_DIR)
 
 clean:
 			make -C $(LIBFT_DIR) clean
-			$(RM) $(OBJ_DIR)
+			$(RM) $(OBJ)
 
 fclean: clean
 			make -C $(LIBFT_DIR) fclean
